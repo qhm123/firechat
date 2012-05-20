@@ -3,7 +3,6 @@ var sys = require("util")
   , fs = require("fs")
   , path = require("path")
   , http = require("http")
-  //, socketio = require("websocket-server");
   , ws = require(__dirname + '/VanCoding-node-websocket-server-7ddbb34');
 /*-----------------------------------------------
   logging:
@@ -65,8 +64,8 @@ server.addListener("connection", function(conn){
   log("opened connection: "+conn.id);
   
   connected++;
-  server.send(conn.id, connected+'');
-  conn.broadcast(connected+'');
+  server.send(conn.id, '欢迎加入firechat');
+  conn.broadcast(connected+'加入了firechat');
   
   conn.addListener("message", function(message){
     log("<"+conn.id+"> "+message);
@@ -82,4 +81,4 @@ server.listen(80);
 // Handle HTTP Requests:
 // This will hijack the http server, if the httpserver doesn't 
 // already respond to http.Server#request
-// server.addListener("request", serveFile);
+server.addListener("request", serveFile);
