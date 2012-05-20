@@ -11,7 +11,7 @@
 </ul>
 
 <script>
-    // new socket
+  // new socket
 	var socket = new WebSocket('ws://firechat.cnodejs.net:80/');
 			
 	// push a message after the connection is established.
@@ -31,7 +31,7 @@
 	socket.onclose = function() {
 		alert('closed');
 
-    setTimout(function() {
+    setTimeout(function() {
       socket = new WebSocket('ws://firechatat.cnodejs.net:80/');
     }, 10000);
 	};
@@ -40,14 +40,14 @@
 	socket.onerror = function(msg) {
 		alert(JSON.stringify(msg));
 	};
-    
-    function send() {
-        var msg = document.getElementById('message').value;
-        socket.send(msg);
-        var li = document.createElement('li');
-        li.innerText = msg;
-        document.getElementById('list').appendChild(li);
-    }
+
+  function send() {
+    var msg = document.getElementById('message').value;
+    socket.send(msg);
+    var li = document.createElement('li');
+    li.innerText = msg;
+    document.getElementById('list').appendChild(li);
+  }
 </script>
 </body>
 </html>

@@ -32,7 +32,7 @@
 		socket.onclose = function() {
 			alert('closed');
 			
-			setTimout(function() {
+			setTimeout(function() {
 				socket = new WebSocket('ws://firechat.cnodejs.net:80/');
 			}, 10000);
 		};
