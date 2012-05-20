@@ -30,6 +30,10 @@
 	// alert close event
 	socket.onclose = function() {
 		alert('closed');
+
+    setTimout(function() {
+      socket = new WebSocket('ws://firechatat.cnodejs.net:80/');
+    }, 10000);
 	};
 	
 	// alert error event
